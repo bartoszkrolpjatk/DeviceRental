@@ -3,11 +3,16 @@
 public abstract class IdentifiableObject
 {
     private static int _objectCounter;
-    
-    private int _id;
-    
+
+    private int Id { get; }
+
     protected IdentifiableObject()
     {
-        _id = _objectCounter++;
+        Id = _objectCounter++;
+    }
+
+    public override string ToString()
+    {
+        return $"IdentifiableObject[Id: {Id.ToString()}]";
     }
 }

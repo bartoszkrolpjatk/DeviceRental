@@ -2,12 +2,17 @@
 
 public abstract class Device : IdentifiableObject
 {
-    private string _name;
-    private Status _status;
+    private string Name { get; }
+    public Status Status { get; set; }
     
     protected Device(string name, Status status) : base()
     {
-        _name = name;
-        _status = status;
+        Name = name;
+        Status = Status.Available;
+    }
+
+    public override string ToString()
+    {
+        return $"{base.ToString()} Device[ Name: {Name}, Status: {Status}]";
     }
 }
