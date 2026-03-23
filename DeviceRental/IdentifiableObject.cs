@@ -1,4 +1,4 @@
-﻿namespace DeviceRental.Model;
+﻿namespace DeviceRental;
 
 public abstract class IdentifiableObject
 {

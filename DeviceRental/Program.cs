@@ -1,5 +1,5 @@
-﻿using DeviceRental.Model;
-using DeviceRental.Service;
+﻿using DeviceRental.Devices;
+using DeviceRental.Users;
 
 var deviceService = new DeviceService();
 

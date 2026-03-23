@@ -1,4 +1,4 @@
-﻿namespace DeviceRental.Model;
+﻿namespace DeviceRental.Users;
 
 public abstract class User : IdentifiableObject
 {

@@ -1,4 +1,4 @@
-﻿namespace DeviceRental.Model;
+﻿namespace DeviceRental.Devices;
 
 public class Camera : Device
 {

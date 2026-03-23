@@ -1,6 +1,4 @@
-﻿using DeviceRental.Model;
-
-namespace DeviceRental.Service;
+﻿namespace DeviceRental.Devices;
 
 public class DeviceService
 {
