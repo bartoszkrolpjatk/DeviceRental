@@ -23,6 +23,16 @@ public abstract class Device : IdentifiableObject
         Status = Status.Unavailable;
     }
 
+    internal void SetRented()
+    {
+        Status = Status.Rented;
+    }
+
+    internal void SetAvailable()
+    {
+        Status = Status.Available;
+    }
+
     public override string ToString()
     {
         return $"{base.ToString()} Device[ Name: {Name}, Status: {Status}]";

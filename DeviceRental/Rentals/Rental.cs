@@ -4,17 +4,25 @@ namespace DeviceRental.Rentals;
 
 public class Rental
 {
+    private static readonly List<Rental> Rentals = [];
+    
     private Devices.Device RentedDevice { get; }
-    private User Renter { get; }
+    internal User Renter { get; }
     private DateTime StartDate { get; }
     private DateTime? EndDate { get; set; } = null;
     private bool? ReturnedInTime { get; set; } = null;
 
-    public Rental(Devices.Device rentedDevice, User renter, DateTime startDate)
+    public Rental(Devices.Device rentedDevice, User renter)
     {
         RentedDevice = rentedDevice;
         Renter = renter;
-        StartDate = startDate;
+        StartDate = DateTime.Now;
+        Rentals.Add(this);
+    }
+
+    internal static List<Rental> GetRentals()
+    {
+        return [..Rentals];
     }
 
     public override string ToString()
