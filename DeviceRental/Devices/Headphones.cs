@@ -1,11 +1,11 @@
-﻿namespace DeviceRental.Model;
+﻿namespace DeviceRental.Devices;
 
 public class Headphones : Device
 {
     private bool Wireless { get; }
     private bool HasMicrophone { get; }
     
-    public Headphones(string name, Status status, bool wireless, bool hasMicrophone) : base(name, status)
+    public Headphones(string name, bool wireless, bool hasMicrophone) : base(name)
     {
         Wireless = wireless;
         HasMicrophone = hasMicrophone;

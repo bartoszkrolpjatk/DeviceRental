@@ -1,14 +1,16 @@
-﻿namespace DeviceRental.Model;
+﻿using DeviceRental.Users;
+
+namespace DeviceRental.Rentals;
 
 public class Rental
 {
-    private Device RentedDevice { get; }
+    private Devices.Device RentedDevice { get; }
     private User Renter { get; }
     private DateTime StartDate { get; }
     private DateTime? EndDate { get; set; } = null;
     private bool? ReturnedInTime { get; set; } = null;
 
-    public Rental(Device rentedDevice, User renter, DateTime startDate)
+    public Rental(Devices.Device rentedDevice, User renter, DateTime startDate)
     {
         RentedDevice = rentedDevice;
         Renter = renter;

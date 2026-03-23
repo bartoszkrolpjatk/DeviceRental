@@ -1,4 +1,4 @@
-﻿namespace DeviceRental.Model;
+﻿namespace DeviceRental;
 
 public abstract class IdentifiableObject
 {
@@ -8,7 +8,7 @@ public abstract class IdentifiableObject
 
     protected IdentifiableObject()
     {
-        Id = _objectCounter++;
+        Id = ++_objectCounter;
     }
 
     public override string ToString()

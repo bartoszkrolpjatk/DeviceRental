@@ -1,9 +1,9 @@
-﻿namespace DeviceRental.Model;
+﻿namespace DeviceRental.Users;
 
 public abstract class User : IdentifiableObject
 {
-    public string FirstName { get; }
-    public string LastName { get; }
+    private string FirstName { get; }
+    private string LastName { get; }
 
     protected User(string firstName, string lastName) : base()
     {
