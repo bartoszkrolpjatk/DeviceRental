@@ -2,6 +2,7 @@
 
 public abstract class Device : IdentifiableObject
 {
+    private static readonly List<Device> AllDevices = [];
     private string Name { get; }
     public Status Status { get; set; }
     
@@ -9,6 +10,12 @@ public abstract class Device : IdentifiableObject
     {
         Name = name;
         Status = Status.Available;
+        AllDevices.Add(this);
+    }
+
+    public static List<Device> GetAllDevices()
+    {
+        return [..AllDevices];        
     }
 
     public override string ToString()
