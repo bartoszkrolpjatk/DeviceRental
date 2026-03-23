@@ -6,7 +6,7 @@ public abstract class Device : IdentifiableObject
     private string Name { get; }
     public Status Status { get; set; }
     
-    protected Device(string name, Status status) : base()
+    protected Device(string name) : base()
     {
         Name = name;
         Status = Status.Available;

@@ -8,7 +8,7 @@ public abstract class IdentifiableObject
 
     protected IdentifiableObject()
     {
-        Id = _objectCounter++;
+        Id = ++_objectCounter;
     }
 
     public override string ToString()

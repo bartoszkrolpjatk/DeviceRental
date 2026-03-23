@@ -5,7 +5,7 @@ public class Camera : Device
     private int Resolution { get; }
     private string VideoQuality { get; }
     
-    public Camera(string name, Status status, int resolution, string videoQuality) : base(name, status)
+    public Camera(string name, int resolution, string videoQuality) : base(name)
     {
         Resolution = resolution;
         VideoQuality = videoQuality;
