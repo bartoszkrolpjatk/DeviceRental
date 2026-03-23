@@ -4,7 +4,7 @@ public abstract class Device : IdentifiableObject
 {
     private static readonly List<Device> AllDevices = [];
     private string Name { get; }
-    public Status Status { get; set; }
+    public Status Status { get; private set; }
     
     protected Device(string name) : base()
     {
@@ -13,9 +13,14 @@ public abstract class Device : IdentifiableObject
         AllDevices.Add(this);
     }
 
-    public static List<Device> GetAllDevices()
+    internal static List<Device> GetAllDevices()
     {
         return [..AllDevices];        
+    }
+
+    internal void SetUnavailable()
+    {
+        Status = Status.Unavailable;
     }
 
     public override string ToString()

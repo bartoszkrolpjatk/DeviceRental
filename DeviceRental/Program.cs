@@ -9,4 +9,7 @@ var dell = new Laptop("Dell 14 Plus", 14, 2024);
 var headphones = new Headphones("JBL BTNC600", true, true);
 var camera = new Camera("Fuji2024", 1920, "Full HD");
 
+camera.SetUnavailable();
+
 deviceService.ShowDevices();
+deviceService.ShowDevices(status: Status.Available);
