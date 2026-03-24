@@ -1,9 +1,10 @@
-﻿using DeviceRental.Devices;
+﻿using DeviceRental;
+using DeviceRental.Devices;
 using DeviceRental.Rentals;
 using DeviceRental.Users;
 
-var deviceService = new DeviceService();
 var rentalService = new RentalService();
+var consoleLoggerService = new ConsoleLoggerService();
 
 //creating users
 var michael = new Student("Michael", "Scott");
@@ -15,7 +16,7 @@ var dell = new Laptop("Dell 14 Plus", 14, 2024);
 var headphones = new Headphones("JBL BTNC600", true, true);
 var camera = new Camera("Fuji2024", 1920, "Full HD");
 
-deviceService.ShowDevices();
+consoleLoggerService.ShowDevices();
 
 {
     Console.WriteLine("\n-----START TEST CASE 1 - Michael rents a camera-----");
@@ -34,7 +35,7 @@ deviceService.ShowDevices();
     Console.WriteLine("-----END TEST CASE 1-----\n");
 }
 
-rentalService.ShowSystemReport();
+consoleLoggerService.ShowSystemReport();
 
 {
     Console.WriteLine("\n-----START TEST CASE 2 - Michael rents devices to his limit-----");
@@ -51,11 +52,11 @@ rentalService.ShowSystemReport();
         Console.Error.WriteLine($"ERROR! {ex.Message}");
     }
     rentalService.ReturnDevice(headphoneRentalByMichael);
-    rentalService.ShowDevicesRentedByUser(michael);
+    consoleLoggerService.ShowDevicesRentedByUser(michael);
     Console.WriteLine("-----END TEST CASE 2-----\n");
 }
 
-rentalService.ShowSystemReport();
+consoleLoggerService.ShowSystemReport();
 
 {
     Console.WriteLine("\n-----START TEST CASE 3 - Tomaszew rents device, breaks it and returns after the deadline -----");
@@ -93,16 +94,16 @@ rentalService.ShowSystemReport();
     Console.WriteLine("-----END TEST CASE 5-----\n");
 }
 
-deviceService.ShowDevices(Status.Unavailable); //only headphones printed out
-deviceService.ShowDevices();
+consoleLoggerService.ShowDevices(Status.Unavailable); //only headphones printed out
+consoleLoggerService.ShowDevices();
 
-rentalService.ShowSystemReport();
+consoleLoggerService.ShowSystemReport();
 
 {
     Console.WriteLine("\n-----START TEST CASE 6 - Michael rents dell and keeps it after the deadline-----");
     Rental dellRentalByMichael = rentalService.RentDevice(michael, dell, new DateTime(2026, 3, 22)); 
     Console.WriteLine($"Micheal created rental {dellRentalByMichael}");
-    rentalService.ShowOpenRentalsPastExpectedEndDate();
+    consoleLoggerService.ShowOpenRentalsPastExpectedEndDate();
     Console.WriteLine("-----END TEST CASE 6-----\n");
 }
 

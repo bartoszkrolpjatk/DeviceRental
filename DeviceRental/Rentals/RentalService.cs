@@ -34,38 +34,6 @@ public class RentalService
         return new Rental(device, user, startDate);
     }
 
-    public void ShowDevicesRentedByUser(User user)
-    {
-        foreach (var device in Rental.GetRentals().Where(rental => rental.Open() && rental.Renter.Equals(user)).Select(rental => rental.RentedDevice))
-        {
-            Console.WriteLine(device);
-        }
-    }
-
-    public void ShowSystemReport()
-    {
-        Console.WriteLine("---System report---");
-        Console.WriteLine("Ongoing rentals");
-        foreach (var rental in Rental.GetRentals().Where(r => r.Open()))
-        {
-            Console.WriteLine(rental);
-        }
-        Console.WriteLine("Closed rentals");
-        foreach (var rental in Rental.GetRentals().Where(r => !r.Open()))
-        {
-            Console.WriteLine(rental);
-        }
-    }
-
-    public void ShowOpenRentalsPastExpectedEndDate()
-    {
-        foreach (var rental in Rental.GetRentals()
-                     .Where(rental => rental.Open() && DateTime.Now > rental.ExpectedEndDate))
-        {
-            Console.WriteLine(rental);
-        }
-    }
-
     private int GetNumberOfRentedDevices(User user)
     {
         return Rental.GetRentals()
