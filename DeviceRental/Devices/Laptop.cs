@@ -11,7 +11,7 @@ public class Laptop : Device
         YearProduced = yearProduced;
     }
 
-    internal override decimal GetBrokenDeviceFee()
+    public override decimal GetBrokenDeviceFee()
     {
         return 3000;
     }

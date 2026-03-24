@@ -4,7 +4,7 @@ public abstract class Device : IdentifiableObject
 {
     private static readonly List<Device> AllDevices = [];
     private string Name { get; }
-    public Status Status { get; internal set; }
+    public Status Status { get; set; }
     
     protected Device(string name) : base()
     {
@@ -13,12 +13,12 @@ public abstract class Device : IdentifiableObject
         AllDevices.Add(this);
     }
 
-    internal static List<Device> GetAllDevices()
+    public static List<Device> GetAllDevices()
     {
         return [..AllDevices];        
     }
 
-    internal abstract decimal GetBrokenDeviceFee();
+    public abstract decimal GetBrokenDeviceFee();
 
     public override string ToString()
     {

@@ -11,7 +11,7 @@ public class Headphones : Device
         HasMicrophone = hasMicrophone;
     }
 
-    internal override decimal GetBrokenDeviceFee()
+    public override decimal GetBrokenDeviceFee()
     {
         return 500;
     }

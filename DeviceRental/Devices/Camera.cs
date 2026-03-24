@@ -11,7 +11,7 @@ public class Camera : Device
         VideoQuality = videoQuality;
     }
 
-    internal override decimal GetBrokenDeviceFee()
+    public override decimal GetBrokenDeviceFee()
     {
         return 1000;
     }

@@ -7,11 +7,11 @@ public class Rental
 {
     private static readonly List<Rental> Rentals = [];
     
-    internal Device RentedDevice { get; }
-    internal User Renter { get; }
+    public Device RentedDevice { get; }
+    public User Renter { get; }
     private DateTime StartDate { get; }
-    internal DateTime ExpectedEndDate { get; }
-    internal DateTime? ActualEndDate { get; set; }
+    public DateTime ExpectedEndDate { get; }
+    public DateTime? ActualEndDate { get; set; }
     public decimal Fee { get; internal set; }
 
     public Rental(Device rentedDevice, User renter, DateTime startDate)
@@ -23,12 +23,12 @@ public class Rental
         Rentals.Add(this);
     }
 
-    internal static List<Rental> GetRentals()
+    public static List<Rental> GetRentals()
     {
         return [..Rentals];
     }
 
-    internal bool Open()
+    public bool Open()
     {
         return ActualEndDate == null;
     }
