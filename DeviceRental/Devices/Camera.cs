@@ -11,6 +11,11 @@ public class Camera : Device
         VideoQuality = videoQuality;
     }
 
+    internal override decimal GetBrokenDeviceFee()
+    {
+        return 1000;
+    }
+
     public override string ToString()
     {
         return $"{base.ToString()} Camera [Resolution: {Resolution}, VideoQuality: {VideoQuality}]";

@@ -1,24 +1,41 @@
-﻿using DeviceRental.Users;
+﻿using DeviceRental.Devices;
+using DeviceRental.Users;
 
 namespace DeviceRental.Rentals;
 
 public class Rental
 {
-    private Devices.Device RentedDevice { get; }
-    private User Renter { get; }
+    private static readonly List<Rental> Rentals = [];
+    
+    internal Device RentedDevice { get; }
+    internal User Renter { get; }
     private DateTime StartDate { get; }
-    private DateTime? EndDate { get; set; } = null;
-    private bool? ReturnedInTime { get; set; } = null;
+    internal DateTime ExpectedEndDate { get; }
+    internal DateTime? ActualEndDate { get; set; }
+    public decimal Fee { get; internal set; }
 
-    public Rental(Devices.Device rentedDevice, User renter, DateTime startDate)
+    public Rental(Device rentedDevice, User renter, DateTime startDate)
     {
         RentedDevice = rentedDevice;
         Renter = renter;
         StartDate = startDate;
+        ExpectedEndDate = StartDate.AddDays(1);
+        Rentals.Add(this);
+    }
+
+    internal static List<Rental> GetRentals()
+    {
+        return [..Rentals];
+    }
+
+    internal bool Open()
+    {
+        return ActualEndDate == null;
     }
 
     public override string ToString()
     {
-        return $"Rental[RentedDevice: {RentedDevice}, Renter: {Renter}, StartDate: {StartDate}, EndTime: {EndDate}, ReturnedInTime: {ReturnedInTime}]";
+        var endedInTime = ExpectedEndDate > ActualEndDate;
+        return $"Rental[RentedDevice: {RentedDevice}, Renter: {Renter}, StartDate: {StartDate}, EndTime: {ExpectedEndDate}, endedInTime: {endedInTime}]";
     }
 }
