@@ -11,6 +11,8 @@ public abstract class User : IdentifiableObject
         LastName = lastName;
     }
 
+    public abstract int GetDeviceLimit();
+
     public override string ToString()
     {
         return $"{base.ToString()} User[FirstName: {FirstName}, LastName: {LastName}]";

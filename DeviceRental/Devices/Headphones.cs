@@ -11,6 +11,11 @@ public class Headphones : Device
         HasMicrophone = hasMicrophone;
     }
 
+    internal override decimal GetBrokenDeviceFee()
+    {
+        return 500;
+    }
+
     public override string ToString()
     {
         return $"{base.ToString()} Headphones: [Wireless:  {Wireless}, HasMicrophone: {HasMicrophone}]";

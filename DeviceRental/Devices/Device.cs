@@ -4,7 +4,7 @@ public abstract class Device : IdentifiableObject
 {
     private static readonly List<Device> AllDevices = [];
     private string Name { get; }
-    public Status Status { get; private set; }
+    public Status Status { get; internal set; }
     
     protected Device(string name) : base()
     {
@@ -18,20 +18,7 @@ public abstract class Device : IdentifiableObject
         return [..AllDevices];        
     }
 
-    internal void SetUnavailable()
-    {
-        Status = Status.Unavailable;
-    }
-
-    internal void SetRented()
-    {
-        Status = Status.Rented;
-    }
-
-    internal void SetAvailable()
-    {
-        Status = Status.Available;
-    }
+    internal abstract decimal GetBrokenDeviceFee();
 
     public override string ToString()
     {

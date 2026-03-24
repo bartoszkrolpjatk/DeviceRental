@@ -11,6 +11,11 @@ public class Laptop : Device
         YearProduced = yearProduced;
     }
 
+    internal override decimal GetBrokenDeviceFee()
+    {
+        return 3000;
+    }
+
     public override string ToString()
     {
         return $"{base.ToString()} Laptop [ScreenSize: {ScreenSize}, YearProduced: {YearProduced}]";
