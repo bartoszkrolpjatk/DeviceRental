@@ -35,7 +35,7 @@ public class Rental
 
     public override string ToString()
     {
-        var endedInTime = ExpectedEndDate > ActualEndDate;
-        return $"Rental[RentedDevice: {RentedDevice}, Renter: {Renter}, StartDate: {StartDate}, EndTime: {ExpectedEndDate}, endedInTime: {endedInTime}]";
+        var inTime = ExpectedEndDate > ActualEndDate;
+        return $"Rental[RentedDevice: {RentedDevice}, Renter: {Renter}, StartDate: {StartDate}, ExpectedEndTime: {ExpectedEndDate} ActualEndTime: {ActualEndDate}, inTime: {inTime}]";
     }
 }

@@ -40,7 +40,7 @@ rentalService.ShowSystemReport();
     Console.WriteLine("\n-----START TEST CASE 2 - Michael rents devices to his limit-----");
     Rental headphoneRentalByMichael = rentalService.RentDevice(michael, headphones, DateTime.Now);
     Console.WriteLine($"Michael created rental {headphoneRentalByMichael}");
-    Rental hpRentalByMichael = rentalService.RentDevice(michael, hp, new DateTime(2026, 3, 22)); 
+    Rental hpRentalByMichael = rentalService.RentDevice(michael, hp, DateTime.Now); 
     Console.WriteLine($"Michael created rental {hpRentalByMichael}");
     try
     {
@@ -51,6 +51,7 @@ rentalService.ShowSystemReport();
         Console.Error.WriteLine($"ERROR! {ex.Message}");
     }
     rentalService.ReturnDevice(headphoneRentalByMichael);
+    rentalService.ShowDevicesRentedByUser(michael);
     Console.WriteLine("-----END TEST CASE 2-----\n");
 }
 
@@ -93,6 +94,15 @@ rentalService.ShowSystemReport();
 }
 
 deviceService.ShowDevices(Status.Unavailable); //only headphones printed out
+deviceService.ShowDevices();
 
 rentalService.ShowSystemReport();
+
+{
+    Console.WriteLine("\n-----START TEST CASE 6 - Michael rents dell and keeps it after the deadline-----");
+    Rental dellRentalByMichael = rentalService.RentDevice(michael, dell, new DateTime(2026, 3, 22)); 
+    Console.WriteLine($"Micheal created rental {dellRentalByMichael}");
+    rentalService.ShowOpenRentalsPastExpectedEndDate();
+    Console.WriteLine("-----END TEST CASE 6-----\n");
+}
 

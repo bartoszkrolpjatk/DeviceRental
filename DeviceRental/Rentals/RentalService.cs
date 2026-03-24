@@ -57,6 +57,15 @@ public class RentalService
         }
     }
 
+    public void ShowOpenRentalsPastExpectedEndDate()
+    {
+        foreach (var rental in Rental.GetRentals()
+                     .Where(rental => rental.Open() && DateTime.Now > rental.ExpectedEndDate))
+        {
+            Console.WriteLine(rental);
+        }
+    }
+
     private int GetNumberOfRentedDevices(User user)
     {
         return Rental.GetRentals()
